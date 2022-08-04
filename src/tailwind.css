@@ -497,6 +497,9 @@ video {
 .m-5{
   margin: 1.25rem;
 }
+.m-1{
+  margin: 0.25rem;
+}
 .my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -699,9 +702,6 @@ video {
 }
 .p-1{
   padding: 0.25rem;
-}
-.p-10{
-  padding: 2.5rem;
 }
 .py-3{
   padding-top: 0.75rem;
