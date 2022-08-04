@@ -104,37 +104,37 @@ const Planet = () => {
                           </span>
                         </button>
                       </div>
-                      <div className="relative p-10 flex-auto">
-                        <p className="m-5 text-slate-500 text-lg leading-relaxed">
+                      <div className="relative p-3 flex-auto">
+                        <p className="m-1 text-slate-500 text-lg leading-relaxed">
                           Rotation : 23
                         </p>
                       </div>
-                      <div className="relative p-10 flex-auto">
-                        <p className="m-5 text-slate-500 text-lg leading-relaxed">
+                      <div className="relative p-3 flex-auto">
+                        <p className="m-1 text-slate-500 text-lg leading-relaxed">
                           Orbital : 304
                         </p>
                       </div>
-                      <div className="relative p-10 flex-auto">
-                        <p className="m-5 text-slate-500 text-lg leading-relaxed">
+                      <div className="relative p-3 flex-auto">
+                        <p className="m-1 text-slate-500 text-lg leading-relaxed">
                           Diameter : 1046
                         </p>
                       </div>
-                      <div className="relative p-10 flex-auto">
-                        <p className="m-5 text-slate-500 text-lg leading-relaxed">
+                      <div className="relative p-3 flex-auto">
+                        <p className="m-1 text-slate-500 text-lg leading-relaxed">
                           Population : 20000
                         </p>
                       </div>
-                      <div className="relative p-10 flex-auto">
-                        <p className="m-5 text-slate-500 text-lg leading-relaxed">
+                      <div className="relative p-3 flex-auto">
+                        <p className="m-1 text-slate-500 text-lg leading-relaxed">
                           Terrain : desert
                         </p>
                       </div>
-                      <div className="relative p-10 flex-auto">
-                        <p className="m-5 text-slate-500 text-lg leading-relaxed">
+                      <div className="relative p-3 flex-auto">
+                        <p className="m-1 text-slate-500 text-lg leading-relaxed">
                           Climate : Arid
                         </p>
                       </div>
-                      <div className="flex items-center justify-end p-10 border-t border-solid border-slate-200 rounded-b">
+                      <div className="flex items-center justify-end p-3 border-t border-solid border-slate-200 rounded-b">
                         <button
                           className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                           type="button"

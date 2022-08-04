@@ -505,9 +505,9 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
-.my-4{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.mx-1{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 .mb-2{
   margin-bottom: 0.5rem;
@@ -539,20 +539,23 @@ video {
 .h-full{
   height: 100%;
 }
+.h-8{
+  height: 2rem;
+}
 .h-\[120\]{
   height: 120;
 }
 .h-6{
   height: 1.5rem;
 }
-.h-8{
-  height: 2rem;
-}
 .w-full{
   width: 100%;
 }
 .w-4\/5{
   width: 80%;
+}
+.w-8{
+  width: 2rem;
 }
 .w-\[120\]{
   width: 120;
@@ -562,9 +565,6 @@ video {
 }
 .w-6{
   width: 1.5rem;
-}
-.w-8{
-  width: 2rem;
 }
 .max-w-3xl{
   max-width: 48rem;
@@ -623,14 +623,14 @@ video {
 .overflow-x-hidden{
   overflow-x: hidden;
 }
+.rounded-full{
+  border-radius: 9999px;
+}
 .rounded-lg{
   border-radius: 0.5rem;
 }
 .rounded{
   border-radius: 0.25rem;
-}
-.rounded-full{
-  border-radius: 9999px;
 }
 .rounded-t{
   border-top-left-radius: 0.25rem;
@@ -640,14 +640,14 @@ video {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
+.border-4{
+  border-width: 4px;
+}
 .border{
   border-width: 1px;
 }
 .border-0{
   border-width: 0px;
-}
-.border-4{
-  border-width: 4px;
 }
 .border-b{
   border-bottom-width: 1px;
@@ -699,6 +699,9 @@ video {
 }
 .p-1{
   padding: 0.25rem;
+}
+.p-10{
+  padding: 2.5rem;
 }
 .py-3{
   padding-top: 0.75rem;
