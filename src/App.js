@@ -6,7 +6,7 @@ import Planet from "./Views/Planet";
 
 const App = () => {
   return (
-    <div className="m-6 overflow-hidden">
+    <div className="overflow-hidden">
       <Router>
         <Header />
         <div>
