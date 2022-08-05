@@ -5,6 +5,7 @@ const Starship = () => {
   const [starships, setStarships] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [detailStarship, setDetailStarships] = useState([]);
 
   const url = "https://swapi.dev/api/starships/";
 
@@ -13,7 +14,7 @@ const Starship = () => {
     axios
       .get(url)
       .then((response) => {
-        console.log(response.data.results);
+        console.log(response.data);
         setStarships(response.data.results);
       })
       .catch((error) => {
@@ -24,14 +25,17 @@ const Starship = () => {
 
   useEffect(() => {
     getData();
-  });
-
-  const openModal = () => {
-    setShowModal(true);
-  };
+  }, []);
 
   const closeModal = () => {
     setShowModal(false);
+  };
+
+  const handleClickModal = async (id) => {
+    const response = await axios.get(`https://swapi.dev/api/starships/${id}`);
+    console.log(response.data);
+    setDetailStarships(response.data);
+    setShowModal(true);
   };
 
   return loading ? (
@@ -45,21 +49,20 @@ const Starship = () => {
     </div>
   ) : (
     <>
-      <div></div>
       <div>
-        <div className="flex flex-wrap justify-center">
-          {starships.map((starship, i) => {
+        <div className="flex flex-row flex-wrap justify-center">
+          {starships.map((starship, index) => {
             const { name, model, passengers, crew } = starship;
             return (
-              <div className="m-5" key={i}>
-                <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 grid-cols-4">
+              <div className="m-5 w-[120] h-[120]" key={index}>
+                <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <div>
-                    {name.length <= 28 ? (
+                    {name.length <= 24 ? (
                       <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">
                         Starship : {name}
                       </h5>
                     ) : (
-                      <h5 className="mb-2 text-2xxl font-bold tracking-tight text-gray-900 dark:text-white">
+                      <h5 className="mb-2 text-[50] font-bold tracking-tight text-gray-900 dark:text-white">
                         Starship : {name}
                       </h5>
                     )}
@@ -78,7 +81,7 @@ const Starship = () => {
                     <button
                       className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                       type="button"
-                      onClick={openModal}
+                      onClick={() => handleClickModal(index + 2)}
                     >
                       Detail View
                     </button>
@@ -95,7 +98,7 @@ const Starship = () => {
                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                       <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                         <h3 className="text-3xl font-semibold">
-                          Starships : CR90 Corvette
+                          Starships : {detailStarship.name}
                         </h3>
                         <button
                           className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -106,39 +109,42 @@ const Starship = () => {
                           </span>
                         </button>
                       </div>
-                      <div className="relative px-6 flex-auto">
+                      <div className="relative p-4 flex-auto">
                         <p className="mx-1 text-slate-500 text-lg leading-relaxed">
-                          Passengers : 600
+                          Passengers :{" "}
+                          {detailStarship.passengers === "n/a"
+                            ? "Data not found"
+                            : detailStarship.passengers}
                         </p>
                       </div>
-                      <div className="relative p-6 flex-auto">
+                      <div className="relative p-4 flex-auto">
                         <p className="mx-1 text-slate-500 text-lg leading-relaxed">
-                          Crew : 47060
+                          Crew : {detailStarship.crew}
                         </p>
                       </div>
-                      <div className="relative p-6 flex-auto">
+                      <div className="relative p-4 flex-auto">
                         <p className="mx-1 text-slate-500 text-lg leading-relaxed">
-                          Length : 1600
+                          Length : {detailStarship.length}
                         </p>
                       </div>
-                      <div className="relative p-6 flex-auto">
+                      <div className="relative p-4 flex-auto">
                         <p className="mx-1 text-slate-500 text-lg leading-relaxed">
-                          Cargo Capacity : 3600000
+                          Cargo Capacity : {detailStarship.cargo_capacity}
                         </p>
                       </div>
-                      <div className="relative p-6 flex-auto">
+                      <div className="relative p-4 flex-auto">
                         <p className="mx-1 text-slate-500 text-lg leading-relaxed">
-                          Manufacturer : Sienar Fleet Systems
+                          Manufacturer : {detailStarship.manufacturer}
                         </p>
                       </div>
-                      <div className="relative p-6 flex-auto">
+                      <div className="relative p-4 flex-auto">
                         <p className="mx-1 text-slate-500 text-lg leading-relaxed">
-                          Counsumables : 5 days
+                          Counsumables : {detailStarship.consumables}
                         </p>
                       </div>
-                      <div className="relative p-6 flex-auto">
+                      <div className="relative p-4 flex-auto">
                         <p className="mx-1 text-slate-500 text-lg leading-relaxed">
-                          Manufacturer : Sienar Fleet Systems
+                          Model : {detailStarship.model}
                         </p>
                       </div>
                       <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">

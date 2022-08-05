@@ -33,6 +33,15 @@ function NavigationMenu(props) {
             Starship
           </Link>
         </li>
+        <li>
+          <Link
+            to="listTable"
+            className="text-gray-500 py-3 border-b block font-mouse"
+            onClick={props.closeMenu}
+          >
+            Table List
+          </Link>
+        </li>
       </ul>
     </div>
   );
